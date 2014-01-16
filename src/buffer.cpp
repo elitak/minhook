@@ -183,7 +183,7 @@ namespace MinHook { namespace
 		assert(("AllocateBuffer", (size > 0)));
 
 		// ƒAƒ‰ƒCƒƒ“ƒg‹«ŠE‚ÉØ‚èã‚°
-		size = (size + TYPE_ALIGNMENT(void*) - 1) & ~(TYPE_ALIGNMENT(void*) - 1);
+		size = (size + __alignof(void*) - 1) & ~(__alignof(void*) - 1);
 
 		MEMORY_BLOCK* pBlock = GetMemoryBlock(pOrigin, protect, size);
 		if (pBlock == NULL)
