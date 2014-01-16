@@ -41,11 +41,11 @@ namespace MinHook { namespace
 	// Ž©“®“I‚ÉCloseHandle‚³‚ê‚éWindowsƒnƒ“ƒhƒ‹
 	class ScopedHandle
 	{
-		ScopedHandle(const ScopedHandle&);
-		void operator=(const ScopedHandle&);
 	private:
 		HANDLE handle_;
 	public:
+		ScopedHandle(const ScopedHandle&);
+
 		ScopedHandle(HANDLE handle)
 			: handle_(handle)
 		{
@@ -55,6 +55,8 @@ namespace MinHook { namespace
 		{
 			CloseHandle(handle_);
 		}
+
+		void operator=(const ScopedHandle&);
 
 		operator HANDLE() const
 		{
