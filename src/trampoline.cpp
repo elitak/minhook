@@ -30,7 +30,7 @@
 #include <vector>
 #include <algorithm>
 #include <windows.h>
-#include "pstdint.h"
+#include <stdint.h>
 
 #if defined _M_X64
 #include "hde64/include/hde64.h"

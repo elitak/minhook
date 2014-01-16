@@ -1,4 +1,6 @@
 set(CMAKE_SYSTEM_NAME Windows)
+# FIXME this does me no good if it doesn't result in _WIN32_WINDOWS >= 0x5000
+set(CMAKE_SYSTEM_VERSION 0x0501)
 
 set(CMAKE_C_COMPILER   i686-mingw32-gcc)
 set(CMAKE_CXX_COMPILER i686-mingw32-g++)

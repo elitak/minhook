@@ -6,14 +6,6 @@ include (GenerateExportHeader)
 
 include_directories ("./include")
 
-# TODO put this here or leave it as a conditional in trampoline.cpp?
-#if(CHOST MATCHES ".*64.*")
-#  include_directories ("./src/hde64")
-#else()
-#  include_directories ("./src/hde32")
-#endif()
-
-
 # TODO wrap this in linux detect and add notes, or is that improper/impossible? 
 #set(CMAKE_TOOLCHAIN_FILE "./Toolchain-i686-mingw32.cmake")
 
@@ -25,7 +17,17 @@ set(SRCS
   ./src/thread.cpp
   ./src/trampoline.cpp
 )
+
+# TODO put this here or leave it as a conditional in trampoline.cpp?
+if(CMAKE_CXX_COMPILER MATCHES ".*64.*")
+  include_directories ("./src/hde64/include")
+  list(APPEND SRCS ./src/hde64/src/hde64.c)
+else()
+  include_directories ("./src/hde32")
+  list(APPEND SRCS ./src/hde32/hde32.c)
+endif()
          
+set(LIB_TYPE SHARED)
 add_library(MinHook ${LIB_TYPE} ${SRCS})
 
 GENERATE_EXPORT_HEADER( MinHook
