@@ -18,13 +18,13 @@ set(SRCS
   ./src/trampoline.cpp
 )
 
-# TODO put this here or leave it as a conditional in trampoline.cpp?
-if(CMAKE_CXX_COMPILER MATCHES ".*64.*")
-  include_directories ("./src/hde64/include")
-  list(APPEND SRCS ./src/hde64/src/hde64.c)
+# TODO I'm not yet fully abstracting these includes since trampoline.cpp has a lot
+# of ifdef _M_X64 directives in it
+include_directories ("./src/hde")
+if(CMAKE_CXX_COMPILER MATCHES "64")
+  list(APPEND SRCS ./src/hde/hde64.c)
 else()
-  include_directories ("./src/hde32")
-  list(APPEND SRCS ./src/hde32/hde32.c)
+  list(APPEND SRCS ./src/hde/hde32.c)
 endif()
          
 set(LIB_TYPE SHARED)

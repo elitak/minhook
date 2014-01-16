@@ -33,9 +33,9 @@
 #include <stdint.h>
 
 #if defined _M_X64
-#include "hde64/include/hde64.h"
+#include "hde64.h"
 #elif defined _M_IX86
-#include "hde32/hde32.h"
+#include "hde32.h"
 #endif
 
 #include "trampoline.h"
