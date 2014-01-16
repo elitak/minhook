@@ -30,7 +30,9 @@
 #include <vector>
 #include <algorithm>
 #include <windows.h>
-#include <TlHelp32.h>
+#include <tlhelp32.h>
+#include <stdint.h>
+#include <winbase.h>
 
 #include "thread.h"
 

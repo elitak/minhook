@@ -31,7 +31,7 @@
 #include <algorithm>
 #include <functional>
 #include <windows.h>
-#include "pstdint.h"
+#include <stdint.h>
 
 #include "MinHook.h"
 #include "hook.h"
