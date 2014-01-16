@@ -26,7 +26,7 @@
  *  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <Windows.h>
+#include <windows.h>
 #include "MinHook.h"
 #include "hook.h"
 

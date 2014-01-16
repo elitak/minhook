@@ -28,7 +28,7 @@
 
 #pragma once
 
-#include <Windows.h>
+#include <windows.h>
 
 // MinHook Error Codes.
 typedef enum MH_STATUS

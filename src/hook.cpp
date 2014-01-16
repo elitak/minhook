@@ -30,7 +30,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
-#include <Windows.h>
+#include <windows.h>
 #include "pstdint.h"
 
 #include "MinHook.h"

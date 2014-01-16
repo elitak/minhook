@@ -29,7 +29,7 @@
 #include <cassert>
 #include <vector>
 #include <algorithm>
-#include <Windows.h>
+#include <windows.h>
 
 #include "buffer.h"
 
