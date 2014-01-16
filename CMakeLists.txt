@@ -16,9 +16,12 @@ set(SRCS
   ./src/hook.cpp
   ./src/thread.cpp
   ./src/trampoline.cpp
+  ./dll_resources/dllmain.cpp
+  ./dll_resources/MinHook.def
+  ./dll_resources/MinHook.rc
 )
 
-# TODO I'm not yet fully abstracting these includes since trampoline.cpp has a lot
+# XXX I'm not yet fully abstracting these includes since trampoline.cpp has a lot
 # of ifdef _M_X64 directives in it
 include_directories ("./src/hde")
 if(CMAKE_CXX_COMPILER MATCHES "64")
@@ -30,11 +33,11 @@ endif()
 set(LIB_TYPE SHARED)
 add_library(MinHook ${LIB_TYPE} ${SRCS})
 
-GENERATE_EXPORT_HEADER( MinHook
+GENERATE_EXPORT_HEADER(MinHook
   BASE_NAME MinHook
-  EXPORT_MACRO_NAME MyLibrary_EXPORT
+  EXPORT_MACRO_NAME MinHook_EXPORT
   EXPORT_FILE_NAME MinHook.h
-  STATIC_DEFINE MyLibrary_BUILT_AS_STATIC
+  STATIC_DEFINE MinHook_BUILT_AS_STATIC
 )
 
 # FIXME set in toolchain?
